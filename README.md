@@ -90,6 +90,8 @@ Sample Output
 
 - [Configuration Class](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configuration?view=dotnet-plat-ext-5.0)
 - [Four Ways To Read Configuration Setting In C#](https://www.c-sharpcorner.com/article/four-ways-to-read-configuration-setting-in-c-sharp/)
+- [Building a better .NET Application Configuration Class - revisited](https://weblog.west-wind.com/posts/2012/dec/28/building-a-better-net-application-configuration-class-revisited)
+- [The Complete Guide to Custom Configuration Sections](https://robsederblog.wordpress.com/articles/the-complete-guide-to-custom-configuration-sections/)
 
 ## Additional Information
 
