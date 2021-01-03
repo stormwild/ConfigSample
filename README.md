@@ -89,6 +89,7 @@ Sample Output
 ## References
 
 - [Configuration Class](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configuration?view=dotnet-plat-ext-5.0)
+- [Four Ways To Read Configuration Setting In C#](https://www.c-sharpcorner.com/article/four-ways-to-read-configuration-setting-in-c-sharp/)
 
 ## Additional Information
 
