@@ -2,7 +2,97 @@
 
 Project to demonstrate using a class to represent a configuration section
 
-## Sealed
+## SimpleConfigSample
+
+### Setup
+
+1. Create console project
+2. Add reference to System.Configuration
+3. Add App.config with the following content:
+
+	```xml
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+		<configSections>
+			<section name="CustomSection" type="ConfigDomain.CustomSection, ConfigDomain" />
+		</configSections>
+		<CustomSection name="Contoso" url="http://www.contoso.com" port="8080" />
+		<startup> 
+			<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
+		</startup>
+	</configuration>
+	```
+
+4. Add class `CustomSection` representing the configuration section
+
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Configuration;
+
+    namespace ConfigDomain
+    {
+        public sealed class CustomSection : ConfigurationSection
+        {
+            public CustomSection() { }
+
+            [ConfigurationProperty("name", DefaultValue = "Contoso", IsRequired = true, IsKey = true)]
+            public string Name
+            {
+                get { return (string)this["name"]; }
+                set { this["name"] = value; }
+            }
+
+            [ConfigurationProperty("url", DefaultValue = "http://www.contoso.com", IsRequired = true)]
+            [RegexStringValidator(@"\w+:\/\/[\w.]+\S*")]
+            public string Url
+            {
+                get { return (string)this["url"]; }
+                set { this["url"] = value; }
+            }
+
+            [ConfigurationProperty("port", DefaultValue = (int)8080, IsRequired = false)]
+            [IntegerValidator(MinValue = 0, MaxValue = 8080, ExcludeRange = false)]
+            public int Port
+            {
+                get { return (int)this["port"]; }
+                set { this["port"] = value; }
+            }
+        }
+    }
+    ```
+
+5. Load configuration into variable
+
+    ```csharp
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Simple Config Sample");
+
+        var customSection = ConfigurationManager.GetSection("CustomSection") as CustomSection;
+
+        Console.WriteLine($"Section name: {customSection.Name}");
+        Console.WriteLine($"Url: {customSection.Url}");
+        Console.WriteLine($"Port: {customSection.Port}");
+
+        Console.Read();
+    }
+    ```
+
+Sample Output
+
+![](config-sample.png)
+
+## References
+
+- [Configuration Class](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configuration?view=dotnet-plat-ext-5.0)
+
+## Additional Information
+
+### Sealed
 
 [sealed (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed)
 
@@ -25,8 +115,3 @@ Project to demonstrate using a class to represent a configuration section
 > 3) Compatible. If in the future I discover that I should have sealed a class, I'm stuck. Sealing a class is a breaking change. If I discover that I should have left a class unsealed, unsealing in a future version is a non-breaking change. Sealing classes helps maintain compatibility.
 > 
 > 4) Secure. the whole point of polymorphism is that you can pass around objects that look like Animals but are in fact Giraffes. There are potential security issues here.
-
-
-## References
-
-- [Configuration Class](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configuration?view=dotnet-plat-ext-5.0)

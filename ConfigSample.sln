@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigConsole", "ConfigCons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigDomain", "ConfigDomain\ConfigDomain.csproj", "{52E21D56-7D5D-4357-9854-0D817B56A822}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleConfigSample", "SimpleConfigSample\SimpleConfigSample.csproj", "{38670F39-3B5A-4A05-AC17-701EBB6424BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{52E21D56-7D5D-4357-9854-0D817B56A822}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52E21D56-7D5D-4357-9854-0D817B56A822}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52E21D56-7D5D-4357-9854-0D817B56A822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38670F39-3B5A-4A05-AC17-701EBB6424BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38670F39-3B5A-4A05-AC17-701EBB6424BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38670F39-3B5A-4A05-AC17-701EBB6424BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38670F39-3B5A-4A05-AC17-701EBB6424BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,7 +26,7 @@ namespace ConfigDomain
             set { this["url"] = value; }
         }
 
-        [ConfigurationProperty("url", DefaultValue = (int)8080, IsRequired = false)]
+        [ConfigurationProperty("port", DefaultValue = (int)8080, IsRequired = false)]
         [IntegerValidator(MinValue = 0, MaxValue = 8080, ExcludeRange = false)]
         public int Port
         {
